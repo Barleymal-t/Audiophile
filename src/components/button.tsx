@@ -18,9 +18,9 @@ const getVariantClasses = (variant: Variant): string => {
     case "destructive":
       return "bg-red-500 text-white hover:bg-red-600"
     case "ghost":
-      return "hover:bg-accent hover:text-orange"
+      return "text-[rgba(0,0,0,0.5)] hover:bg-accent hover:text-orange"
     case "secondary":
-      return "bg-white text-black hover:bg-black hover:text-white"
+      return "bg-transparent border-1 text-black hover:border-black hover:bg-black hover:text-white"
     case "link":
       return "underline-offset-4 hover:underline text-primary"
     default:
@@ -55,7 +55,7 @@ export const Button: FC<ButtonProps> = ({
 
   return (
     <button className={finalClassName} {...props}>
-      {children} {variant=="ghost" && <Image width={5} height={10} src={rightArrow} alt="Arrow Icon"/> }
+      {children} {variant=="ghost" && <Image width={7} height={10} src={rightArrow} alt="Arrow Icon"/> }
     </button>
   )
 }
