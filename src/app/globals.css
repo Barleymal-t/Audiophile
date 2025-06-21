@@ -10,11 +10,12 @@
   --color-peach:#fbaf85;
   --color-dark-gray:#101010;
   --color-gray:#F1F1F1;
+  --color-medium-gray:#CFCFCF;
   --color-light-gray:#FAFAFA;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* --font-sans: var(--font-geist-sans); */
+  /* --font-mono: var(--font-geist-mono); */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,5 +28,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
