@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Navlinks from "./navlinks";
 import Navrow from "./navrow";
+import { Cart } from "./cart";
 
 const Navbar = () => {
     const router = useRouter();
@@ -30,30 +31,22 @@ const Navbar = () => {
                                     : "/assets/shared/tablet/icon-hamburger.svg"
                             }
                             alt="menu"
-                            height={24}
-                            width={24}
+                            height={18}
+                            width={18}
                         />
                         <Image
                             className="cursor-pointer"
                             onClick={() => router.push("/")}
                             src="/assets/shared/desktop/logo.svg"
                             alt="logo"
-                            height={200}
-                            width={200}
+                            height={150}
+                            width={150}
                         />
                     </div>
                     <div className="hidden lg:block">
                         <Navlinks />
                     </div>
-                    <div className="">
-                        <Image
-                            className="cursor-pointer"
-                            src="/assets/shared/desktop/icon-cart.svg"
-                            alt="cart"
-                            height={24}
-                            width={24}
-                        />
-                    </div>
+                    <Cart/>
                 </div>
             </nav>
         </header>

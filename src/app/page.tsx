@@ -1,10 +1,11 @@
+"use client"
 import { Button } from "@/components/button";
 import Navrow from "@/components/navrow";
 import ResponsiveImage from "@/components/responsive-image";
 
 export default function Home() {
     return (
-        <div className="">
+        <div className="relative">
             <div className=" ">
                 <div className="bg-black">
                     <main className="max-w-285 m-auto px-8 text-white flex py-34 bg-[url('/assets/home/mobile/image-header.jpg')]  sm:bg-[url('/assets/home/tablet/image-header.jpg')] lg:bg-[url('/assets/home/desktop/image-hero.jpg')] bg-center bg-contain bg-no-repeat">
@@ -48,15 +49,13 @@ export default function Home() {
                           </div>
 
                             <div className="flex basis-1/2 flex-col items-center lg:items-start justify-center text-center lg:text-left gap-7 h-full w-full">
-                                <h1 className="text-4xl md:text-6xl font-semibold uppercase max-w-96">
+                                <h1 className="text-6xl md:text-6xl sm:text-6xl font-semibold uppercase max-w-96 break-words">
                                     ZX9 Speaker
                                 </h1>
-                                <p className="text-medium-gray font-extralight max-w-90">
-                                    Experience natural, lifelike audio and
-                                    exceptional build quality made for the
-                                    passionate music enthusiast.
+                                <p className="text-medium text-white/80 font-extralight max-w-90">
+                                    Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
                                 </p>
-                                <Button variant="secondary">see product</Button>
+                                <Button variant="custom" className="font-semibold">see product</Button>
                             </div>
                         </div>
                     </div>
@@ -76,7 +75,7 @@ export default function Home() {
                             <h1 className=" text-2xl font-semibold uppercase max-w-96">
                                 ZX7 Speaker
                             </h1>
-                            <Button variant="secondary">see product</Button>
+                            <Button variant="secondary" className="font-semibold">see product</Button>
                         </div>
                     </div>
 

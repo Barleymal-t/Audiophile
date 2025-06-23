@@ -19,7 +19,7 @@ const Banner = () => {
         <div className="flex flex-col">
         {products.filter(x=>x.category==lastSegment).map((product,index)=>(
 
-      <DisplayGrid dir={index % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"} key={index} product={product}/>
+      <DisplayGrid dir={index % 2 !== 0 ? "md:flex-row-reverse" : ""} key={index} product={product}/>
         ))}
       </div>
       <div className="w-full mt-50 mb-30">

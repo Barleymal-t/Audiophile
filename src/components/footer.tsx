@@ -16,8 +16,8 @@ const Footer = () => {
                         onClick={() => router.push("/")}
                         src="/assets/shared/desktop/logo.svg"
                         alt="logo"
-                        height={200}
-                        width={200}
+                        height={150}
+                        width={150}
                     />
                     <Navlinks />
                 </div>

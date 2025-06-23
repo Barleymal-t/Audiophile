@@ -2,7 +2,7 @@ import Image from "next/image"
 import type { ButtonHTMLAttributes, FC } from "react"
 import React from "react"
 
-type Variant = "default" | "outline" | "destructive" | "ghost" | "secondary" | "link"
+type Variant = "default" | "outline" | "destructive" | "ghost" | "secondary" | "link" | "custom"
 type Size = "default" | "sm" | "lg" | "icon"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,17 +13,19 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const getVariantClasses = (variant: Variant): string => {
   switch (variant) {
     case "outline":
-      return "border border-input hover:bg-accent hover:text-accent-foreground"
+      return "uppercase font-medium border border-input hover:bg-accent hover:text-accent-foreground"
     case "destructive":
       return "bg-red-500 text-white hover:bg-red-600"
     case "ghost":
-      return "text-[rgba(0,0,0,0.5)] hover:bg-accent hover:text-orange"
+      return " uppercase text-[rgba(0,0,0,0.5)] hover:bg-accent hover:text-orange"
     case "secondary":
-      return "bg-transparent border-1 text-black hover:border-black hover:bg-black hover:text-white"
+      return "uppercase bg-transparent font-medium border-1 text-black hover:border-black hover:bg-black hover:text-white"
     case "link":
-      return "underline-offset-4 hover:underline text-primary"
+      return "capitalize text-[rgba(0,0,0,0.5)] font-light hover:underline text-primary"
+    case "custom":
+      return "uppercase bg-black hover:bg-black/80"
     default:
-      return "bg-orange text-white hover:bg-peach"
+      return " font-medium uppercase bg-orange text-white hover:bg-peach"
   }
 }
 
@@ -48,7 +50,7 @@ export const Button: FC<ButtonProps> = ({
   ...props
 }) => {
   const baseClasses =
-    "uppercase gap-2 cursor-pointer inline-flex items-center justify-center font-medium transition-colors focus:outline-none disabled:opacity-50 disabled:pointer-events-none"
+    " text-nowrap gap-2 cursor-pointer inline-flex items-center justify-center transition-colors focus:outline-none disabled:opacity-50 disabled:pointer-events-none"
 
   const finalClassName = `${baseClasses} ${getVariantClasses(variant)} ${getSizeClasses(size)} ${className}`
 
