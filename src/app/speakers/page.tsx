@@ -1,9 +1,10 @@
+import Banner from '@/components/banner'
 import React from 'react'
 
 const SpeakersPage = () => {
   return (
     <div>
-      <h1 className="text-7xl">SpeakersPage</h1>
+      <Banner/>
     </div>
   )
 }

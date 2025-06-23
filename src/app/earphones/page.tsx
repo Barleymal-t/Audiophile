@@ -1,11 +1,14 @@
-import React from 'react'
+import Banner from "@/components/banner";
+import React from "react";
 
 const EarphonesPage = () => {
-  return (
-    <div>
-      <h1 className="text-7xl">EarphonesPage</h1>
-    </div>
-  )
-}
+    
 
-export default EarphonesPage
+    return (
+        <div>
+            <Banner/>
+        </div>
+    );
+};
+
+export default EarphonesPage;

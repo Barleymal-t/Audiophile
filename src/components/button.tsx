@@ -1,7 +1,6 @@
 import Image from "next/image"
 import type { ButtonHTMLAttributes, FC } from "react"
 import React from "react"
-import rightArrow from "@/public/assets/shared/desktop/icon-arrow-right.svg"
 
 type Variant = "default" | "outline" | "destructive" | "ghost" | "secondary" | "link"
 type Size = "default" | "sm" | "lg" | "icon"
@@ -55,7 +54,7 @@ export const Button: FC<ButtonProps> = ({
 
   return (
     <button className={finalClassName} {...props}>
-      {children} {variant=="ghost" && <Image width={7} height={10} src={rightArrow} alt="Arrow Icon"/> }
+      {children} {variant=="ghost" && <Image width={7} height={10} src="/assets/shared/desktop/icon-arrow-right.svg" alt="Arrow Icon"/> }
     </button>
   )
 }

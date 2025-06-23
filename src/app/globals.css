@@ -6,6 +6,7 @@
 }
 
 @theme inline {
+  --color-black:#191919;
   --color-orange:#D87D4A;
   --color-peach:#fbaf85;
   --color-dark-gray:#101010;
