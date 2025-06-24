@@ -12,18 +12,19 @@ const Counter = ({
 
     useEffect(() => {
         onCountChange(id, count);
-    }, [id, count, onCountChange]);
+        console.log("count changed to",count);
+    }, [id,count]);
 
     return (
-        <div className="w-30 bg-gray flex items-center justify-between">
+        <div className="w-22 bg-gray flex items-center justify-between py-1.5">
             <button
-                className="w-full cursor-pointer"
-                onClick={() => setCount((c) => c - 1)}>
+                className="w-full cursor-pointer text-sm"
+                onClick={() => count>1?setCount((c) => c - 1):null}>
                 -
             </button>
-            {count}
+            <div className="font-semibold text-sm">{count}</div>
             <button
-                className="w-full cursor-pointer"
+                className="w-full cursor-pointer text-sm"
                 onClick={() => setCount((c) => c + 1)}>
                 +
             </button>

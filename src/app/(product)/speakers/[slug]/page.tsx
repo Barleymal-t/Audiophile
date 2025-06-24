@@ -1,5 +1,5 @@
 // app/product/[slug]/page.tsx
-import { Button } from "@/components/button";
+import { BackButton, Button } from "@/components/button";
 import PurchaseGrid from "@/components/purchasegrid";
 import ResponsiveImage from "@/components/responsive-image";
 import products from "@/lib/data/data.json"; // or fetch from API
@@ -18,11 +18,7 @@ export default async function ProductPage({
 
     return (
         <div className="mt-4">
-            <Button
-                variant="link"
-                size="lg">
-                go back
-            </Button>
+            <BackButton/>
             <PurchaseGrid product={product} />
             <div className="flex flex-col lg:flex-row p-8 gap-32 my-24">
                 <div className="basis-[60%] gap-8 flex flex-col">

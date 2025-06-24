@@ -12,9 +12,11 @@ const Navbar = () => {
     return (
         <header className=" bg-black relative">
             <section
-                onClick={() => setShowMenu(false)}
-                className={`lg:hidden py-20 bg-white absolute top-full z-2 w-full rounded-b-lg transform transition-transform duration-700 ease-in-out ${
-                    showMenu ? "translate-y-0" : "-translate-y-[150%]"
+                onClick={() => setShowMenu(!showMenu)}
+                className={`lg:hidden absolute inset-0 top-full z-20 w-full rounded-b-lg transform transition-all duration-700 ease-in-out bg-[rgba(0,0,0,0.5)] ${
+                    showMenu
+                        ? "translate-y-0 h-screen"
+                        : "-translate-y-[150%] h-fit"
                 }`}>
                 <Navrow />
             </section>
@@ -46,7 +48,7 @@ const Navbar = () => {
                     <div className="hidden lg:block">
                         <Navlinks />
                     </div>
-                    <Cart/>
+                    <Cart />
                 </div>
             </nav>
         </header>

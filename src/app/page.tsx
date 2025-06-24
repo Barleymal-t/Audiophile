@@ -28,9 +28,8 @@ export default function Home() {
                         </div>
                     </main>
                 </div>
-                <section className=" py-34">
+                
                     <Navrow />
-                </section>
                 <section className="p-8 max-w-285 m-auto">
                     <div className="bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-[position:50%_-8.125rem] bg-contain lg:bg-[position:-15rem_-9.125rem] bg-no-repeat bg-orange rounded-lg m-auto px-8 text-white py-14 lg:pb-0 overflow-hidden">
                         <div className="flex flex-col items-center justify-center lg:-mb-6 gap-8 lg:gap-20 lg:flex-row lg:items-start">
