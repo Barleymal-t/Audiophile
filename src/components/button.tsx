@@ -1,8 +1,7 @@
 "use client";
-import { Product } from "@/models/product";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import type { ButtonHTMLAttributes, FC } from "react";
+import type { ButtonHTMLAttributes, ComponentProps, FC } from "react";
 import React from "react";
 
 type Variant =
@@ -88,6 +87,7 @@ export const BackButton = () => {
 
     return (
         <Button
+            className="!p-0"
             onClick={() => router.push("../")}
             variant="link"
             size="lg">
@@ -95,9 +95,23 @@ export const BackButton = () => {
         </Button>
     );
 };
+type ProductButtonProps = {
+    category: string;
+    slug: string;
+} & ComponentProps<typeof Button>;
 
-export const ProductButton = ({product}:{product:Product}) => {
+export const ProductButton = ({
+    category,
+    slug,
+    ...props
+}: ProductButtonProps) => {
     const router = useRouter();
 
-    return <Button onClick={()=>router.push(`/${product.category}/${product.slug}`)}>see product</Button>;
+    return (
+        <Button
+            {...props}
+            onClick={() => router.push(`/${category}/${slug}`)}>
+            see product
+        </Button>
+    );
 };

@@ -23,12 +23,15 @@ const DisplayGrid = ({ product, dir }: { product: Product; dir?: string }) => {
                             new product
                         </h1>
                     )}
-                    <h1 className="text-center uppercase max-w-[13ch] text-3xl font-bold tracking-[0.0625rem]">
+                    <h1 className="text-center lg:text-left uppercase max-w-[13ch] text-3xl font-bold tracking-[0.0625rem]">
                         {product.name}
                     </h1>
                     <p className="opacity-50 ">{product.description}</p>
 
-                    <ProductButton product={product} />
+                    <ProductButton
+                        category={product.category}
+                        slug={product.slug}
+                    />
                 </div>
             </div>
         </div>

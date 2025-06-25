@@ -2,7 +2,7 @@
 import { BackButton, Button } from "@/components/button";
 import PurchaseGrid from "@/components/purchasegrid";
 import ResponsiveImage from "@/components/responsive-image";
-import products from "@/lib/data/data.json"; // or fetch from API
+import products from "@/lib/data/data.json";
 import { Product } from "@/models/product";
 
 export default async function ProductPage({
@@ -12,7 +12,6 @@ export default async function ProductPage({
 }) {
     const { slug } = await params;
     const product = products.find((p: Product) => p.slug === slug);
-    console.log(slug);
 
     if (!product) return <div>Product not found</div>;
 

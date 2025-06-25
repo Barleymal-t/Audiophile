@@ -1,5 +1,5 @@
 // app/product/[slug]/page.tsx
-import { BackButton, Button } from "@/components/button";
+import { BackButton, ProductButton } from "@/components/button";
 import PurchaseGrid from "@/components/purchasegrid";
 import ResponsiveImage from "@/components/responsive-image";
 import products from "@/lib/data/data.json"; // or fetch from API
@@ -12,15 +12,14 @@ export default async function ProductPage({
 }) {
     const { slug } = await params;
     const product = products.find((p: Product) => p.slug === slug);
-    console.log(slug);
 
     if (!product) return <div>Product not found</div>;
 
     return (
-        <div className="mt-4">
+        <div className="mt-4 max-w-285 mx-auto p-8">
             <BackButton/>
             <PurchaseGrid product={product} />
-            <div className="flex flex-col lg:flex-row p-8 gap-32 my-24">
+            <div className="flex flex-col lg:flex-row gap-32 my-24">
                 <div className="basis-[60%] gap-8 flex flex-col">
                     <h1 className="md:w-1/2 text-2xl font-bold tracking-[0.0625rem] uppercase">
                         Features
@@ -49,7 +48,7 @@ export default async function ProductPage({
                     </ul>
                 </div>
             </div>
-            <div className="grid sm:grid-cols-[40%_1fr] gap-6 px-8 my-24">
+            <div className="grid sm:grid-cols-[40%_1fr] gap-6 my-24">
                 <div className="grid grid-rows-2 gap-6 ">
                     <ResponsiveImage
                         className="rounded-lg object-contain"
@@ -68,7 +67,7 @@ export default async function ProductPage({
                     alt="third image"
                 />
             </div>
-            <div className="flex flex-col items-center justify-center p-8">
+            <div className="flex flex-col items-center justify-center">
                 <h1 className="uppercase text-2xl mb-8 font-semibold">you may also like</h1>
                 <div className="flex flex-col sm:flex-row gap-8">
                     {
@@ -77,7 +76,7 @@ export default async function ProductPage({
 
                             <ResponsiveImage className="rounded-lg" images={other.image} alt={other.name}/>
                             <h1 className=" text-xl font-bold tracking-[0.0625rem] uppercase">{other.name}</h1>
-                            <Button>see product</Button>
+                            <ProductButton category={product.category} slug={other.slug}/>
                             </div>
                         ))
                     }

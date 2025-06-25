@@ -11,12 +11,11 @@ const Navbar = () => {
     const [showMenu, setShowMenu] = useState(false);
     return (
         <header className=" bg-black relative">
+            
             <section
-                onClick={() => setShowMenu(!showMenu)}
-                className={`lg:hidden absolute inset-0 top-full z-20 w-full rounded-b-lg transform transition-all duration-700 ease-in-out bg-[rgba(0,0,0,0.5)] ${
-                    showMenu
-                        ? "translate-y-0 h-screen"
-                        : "-translate-y-[150%] h-fit"
+                
+                className={`lg:hidden absolute top-full z-2 w-full rounded-b-lg transform transition-all duration-700 ease-in-out  ${
+                    showMenu ? "translate-y-0 " : "-translate-y-[150%]"
                 }`}>
                 <Navrow />
             </section>
@@ -51,6 +50,8 @@ const Navbar = () => {
                     <Cart />
                 </div>
             </nav>
+            <div onClick={() => setShowMenu(false)} className={`z-1 bg-[rgba(0,0,0,0.5)] h-full w-full fixed inset-0 ${showMenu ? "translate-y-0 " : "-translate-y-[150%]"
+                }`}/>
         </header>
     );
 };

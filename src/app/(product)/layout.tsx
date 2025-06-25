@@ -7,7 +7,7 @@ const ProductLayout = ({
     children: React.ReactNode;
 }>) => {
   return (
-    <div className='max-w-'>
+    <div>
         {children}
       <Navrow/>
     </div>

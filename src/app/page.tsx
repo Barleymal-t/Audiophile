@@ -1,5 +1,5 @@
-"use client"
-import { Button } from "@/components/button";
+"use client";
+import { ProductButton } from "@/components/button";
 import Navrow from "@/components/navrow";
 import ResponsiveImage from "@/components/responsive-image";
 
@@ -21,40 +21,49 @@ export default function Home() {
                                 exceptional build quality made for the
                                 passionate music enthusiast.
                             </p>
-                            <Button>see product</Button>
+                            <ProductButton
+                                category="headphones"
+                                slug="xx99-mark-one-headphones"
+                            />
                         </div>
                         <div className="hidden  h-full w-full lg:block">
                             {/* <Image className="" src={Headphones} alt="Headphones"/> */}
                         </div>
                     </main>
                 </div>
-                
-                    <Navrow />
+
+                <Navrow />
                 <section className="p-8 max-w-285 m-auto">
                     <div className="bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-[position:50%_-8.125rem] bg-contain lg:bg-[position:-15rem_-9.125rem] bg-no-repeat bg-orange rounded-lg m-auto px-8 text-white py-14 lg:pb-0 overflow-hidden">
                         <div className="flex flex-col items-center justify-center lg:-mb-6 gap-8 lg:gap-20 lg:flex-row lg:items-start">
-                          <div className="basis-1/2">
-
-                            <ResponsiveImage
-                                alt="ZX9"
-                                images={{
-                                    mobile: "/assets/home/mobile/image-speaker-zx9.png",
-                                    tablet: "/assets/home/tablet/image-speaker-zx9.png",
-                                    desktop:
-                                        "/assets/home/desktop/image-speaker-zx9.png",
-                                }}
-                                className="w-full"
-                            />
-                          </div>
+                            <div className="basis-1/2">
+                                <ResponsiveImage
+                                    alt="ZX9"
+                                    images={{
+                                        mobile: "/assets/home/mobile/image-speaker-zx9.png",
+                                        tablet: "/assets/home/tablet/image-speaker-zx9.png",
+                                        desktop:
+                                            "/assets/home/desktop/image-speaker-zx9.png",
+                                    }}
+                                    className="w-full"
+                                />
+                            </div>
 
                             <div className="flex basis-1/2 flex-col items-center lg:items-start justify-center text-center lg:text-left gap-7 h-full w-full">
                                 <h1 className="text-6xl md:text-6xl sm:text-6xl font-semibold uppercase max-w-96 break-words">
                                     ZX9 Speaker
                                 </h1>
                                 <p className="text-medium text-white/80 font-extralight max-w-90">
-                                    Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+                                    Upgrade to premium speakers that are
+                                    phenomenally built to deliver truly
+                                    remarkable sound.
                                 </p>
-                                <Button variant="custom" className="font-semibold">see product</Button>
+                                <ProductButton
+                                    category="speaker"
+                                    slug="zx9-speaker"
+                                    variant="custom"
+                                    className="font-semibold"
+                                />
                             </div>
                         </div>
                     </div>
@@ -74,7 +83,12 @@ export default function Home() {
                             <h1 className=" text-2xl font-semibold uppercase max-w-96">
                                 ZX7 Speaker
                             </h1>
-                            <Button variant="secondary" className="font-semibold">see product</Button>
+                            <ProductButton
+                                category="speaker"
+                                slug="zx7-speaker"
+                                variant="secondary"
+                                className="font-semibold"
+                            />
                         </div>
                     </div>
 
@@ -93,7 +107,11 @@ export default function Home() {
                             <h1 className=" text-2xl font-semibold uppercase max-w-96">
                                 yx1 earphones
                             </h1>
-                            <Button variant="secondary">see product</Button>
+                            <ProductButton
+                                slug="yx1-earphones"
+                                category="earphones"
+                                variant="secondary"
+                            />
                         </div>
                     </div>
                 </section>

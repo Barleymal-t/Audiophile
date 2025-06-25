@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { Button } from "./button";
 import { Product } from "@/models/product";
 import ResponsiveImage from "./responsive-image";
 import Counter from "./counter";
+import { CartItemData, useCart } from "@/context/CartContext";
 
 const PurchaseGrid = ({
     product,
@@ -11,8 +12,10 @@ const PurchaseGrid = ({
     product: Product;
     showPrice?: boolean;
 }) => {
-    const [counts, setCounts] = useState({});
-    console.log(counts);
+    type NumberMap = {
+        [key: number]: number;
+    };
+    const [counts, setCounts] = useState<NumberMap>({});
 
     const handleCountChange = (id: number, count: number) => {
         setCounts((prev) => ({
@@ -20,9 +23,22 @@ const PurchaseGrid = ({
             [id]: count,
         }));
     };
+    const { addItem } = useCart();
+
+    const addProduct = () => {
+        const item: CartItemData = {
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: counts[product.id],
+            image: `/assets/cart/image-${product.slug}.jpg`,
+        };
+
+        addItem(item);
+    };
 
     return (
-        <div className="max-w-285 mx-auto p-8">
+        <div className="max-w-285 mx-auto">
             <div className="flex gap-16 justify-center items-center flex-col sm:flex-row">
                 <div className="basis-[40%] bg-gray w-full flex justify-center items-center rounded-lg">
                     <ResponsiveImage
@@ -48,7 +64,9 @@ const PurchaseGrid = ({
                                 id={product.id}
                                 onCountChange={handleCountChange}
                             />
-                            <Button>ADD TO CART</Button>
+                            <Button onClick={() => addProduct()}>
+                                add to cart
+                            </Button>
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,7 @@ const Navlinks = () => {
     ];
 
     return (
-        <ul className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center  font-semibold uppercase  [&>*]:hover:text-orange [&>*]:cursor-pointer">
+        <ul className="flex flex-col sm:flex-row gap-4 md:gap-8 items-center  font-semibold uppercase  [&>*]:hover:text-orange [&>*]:text-sm [&>*]:cursor-pointer">
             {navItems.map(({ label, path }) => (
                 <li
                     key={label}

@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Bottom from "@/components/bottom";
+import { CartProvider } from "@/context/CartContext";
 
 const manrope = Manrope({
     subsets: ["latin"],
@@ -25,10 +26,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${manrope.variable} antialiased`}>
-                <Navbar />
-                {children}
-                <Bottom />
-                <Footer />
+                <CartProvider>
+                    <Navbar />
+                    {children}
+                    <Bottom />
+                    <Footer />
+                </CartProvider>
             </body>
         </html>
     );
