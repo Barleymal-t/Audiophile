@@ -19,7 +19,7 @@ const Counter = ({
     return (
         <div className="w-22 bg-gray flex items-center justify-between py-1.5">
             <button
-                className="w-full cursor-pointer text-sm"
+                className="w-full cursor-pointer text-sm hover:text-orange font-bold"
                 onClick={() => {
                     if (count > 1) {
                         setCount((c) => c - 1);
@@ -31,7 +31,7 @@ const Counter = ({
             </button>
             <div className="font-semibold text-sm">{count}</div>
             <button
-                className="w-full cursor-pointer text-sm"
+                className="w-full cursor-pointer text-sm hover:text-orange font-bold"
                 onClick={() => setCount((c) => c + 1)}>
                 +
             </button>

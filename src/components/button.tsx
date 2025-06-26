@@ -30,7 +30,7 @@ const getVariantClasses = (variant: Variant): string => {
         case "secondary":
             return "uppercase bg-transparent font-medium border-1 text-black hover:border-black hover:bg-black hover:text-white";
         case "link":
-            return " capitalize text-[rgba(0,0,0,0.5)] font-light hover:underline text-primary";
+            return " capitalize text-[rgba(0,0,0,0.5)] font-light hover:underline hover:text-orange text-primary";
         case "custom":
             return "uppercase bg-black hover:bg-black/80";
         default:

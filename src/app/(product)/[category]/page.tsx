@@ -1,7 +1,7 @@
 import Banner from "@/components/banner";
 import React from "react";
 
-const EarphonesPage = () => {
+const CategoryPage = () => {
     
 
     return (
@@ -11,4 +11,4 @@ const EarphonesPage = () => {
     );
 };
 
-export default EarphonesPage;
+export default CategoryPage;

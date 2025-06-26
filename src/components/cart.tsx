@@ -13,18 +13,19 @@ import { Button } from "./button";
 import Image from "next/image";
 import CartItem from "./cartitem";
 import { useCart } from "@/context/CartContext";
+import { useRouter } from "next/navigation";
 
 export function Cart() {
+    const router = useRouter();
     const { state, clearCart, getTotalPrice, getTotalCount } = useCart();
 
     return (
         <Dialog>
             <form>
                 <DialogTrigger asChild>
-                    <div className="relative">
+                    <div className="relative cursor-pointer">
                         <span className="absolute top-0 right-0 bg-orange rounded-full w-4 h-4 text-xs flex justify-center items-center translate-x-1/2 -translate-y-1/2">{getTotalCount()}</span>
                         <Image
-                            className="cursor-pointer"
                             src="/assets/shared/desktop/icon-cart.svg"
                             alt="cart"
                             height={24}
@@ -41,7 +42,7 @@ export function Cart() {
                             <Button
                                 onClick={() => clearCart()}
                                 variant="link"
-                                className="mr-5"
+                                className="mr-5 underline"
                                 size="icon">
                                 remove all
                             </Button>
@@ -64,6 +65,7 @@ export function Cart() {
                     </div>
                     <DialogFooter>
                         <Button
+                        onClick={()=>router.push("/checkout")}
                             className="w-full"
                             type="submit">
                             checkout

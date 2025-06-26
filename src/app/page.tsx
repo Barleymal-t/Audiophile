@@ -1,4 +1,5 @@
 "use client";
+import Bottom from "@/components/bottom";
 import { ProductButton } from "@/components/button";
 import Navrow from "@/components/navrow";
 import ResponsiveImage from "@/components/responsive-image";
@@ -116,6 +117,7 @@ export default function Home() {
                     </div>
                 </section>
             </div>
+            <Bottom />
         </div>
     );
 }

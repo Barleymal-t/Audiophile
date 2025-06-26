@@ -121,10 +121,7 @@ export const CartProvider = ({
             (total, item) => total + item.price * item.quantity,
             0
         );
-    const getTotalCount = ()=>state.items.reduce(
-        (total, item) => total + item.quantity,
-        0
-    );
+    const getTotalCount = ()=>state.items.length;
 
     return (
         <CartContext
