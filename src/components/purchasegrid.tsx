@@ -31,6 +31,7 @@ const PurchaseGrid = ({
             name: product.name,
             price: product.price,
             quantity: counts[product.id],
+            category: product.category,
             image: `/assets/cart/image-${product.slug}.jpg`,
         };
 

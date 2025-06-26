@@ -3,7 +3,7 @@ import React from "react";
 import Counter from "./counter";
 import { CartItemData, useCart } from "@/context/CartContext";
 
-const CartItem = ({ item }: { item: CartItemData }) => {
+const CartItem = ({ item,display }: { item: CartItemData,display?:boolean }) => {
     const { removeItem, updateQuantity } = useCart();
 
     const handleCountChange = (id: number, count: number) => {
@@ -21,24 +21,31 @@ const CartItem = ({ item }: { item: CartItemData }) => {
                     {/* image  */}
                     <Image
                         src={item.image}
-                        width={100}
-                        height={100}
+                        width={70}
+                        height={70}
                         alt={item.name}
                         className="rounded-lg"
                     />
                     <div className="flex flex-col">
-                        <p className="text-md font-semibold">{item.name}</p>
+                        <p className="text-md font-semibold uppercase">{item.name.toLowerCase().replace(item.category," ")}</p>
                         <p className="text-sm opacity-50 font-semibold tracking-wider">
-                            $ {item.price.toFixed(2)}
+                            {item.price.toLocaleString("en-US", {
+                                    style: "currency",
+                                    currency: "USD",
+                                    minimumFractionDigits:0
+                                })}
                         </p>
                     </div>
                 </div>
                 {/* right side counter  */}
-                <Counter
+                {
+                    display?<p>x{item.quantity}</p>:
+                    <Counter
                     id={item.id}
                     initialCount={item.quantity}
                     onCountChange={handleCountChange}
-                />
+                    />
+                }
             </div>
         </div>
     );

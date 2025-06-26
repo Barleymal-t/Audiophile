@@ -8,10 +8,8 @@ const CheckoutPage = () => {
       <div className="p-8 max-w-285 mx-auto">
 
       <BackButton/>
-      <div className="flex flex-col lg:flex-row gap-8">
 
       <Checkout/>
-      </div>
       </div>
     </div>
   )
