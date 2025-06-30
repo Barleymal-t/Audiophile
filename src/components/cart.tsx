@@ -35,7 +35,7 @@ export function Cart() {
                         />
                     </div>
                 </DialogTrigger>
-                {state.items.length == 0 ? (
+                {/* {state.items.length == 0 ? (
                     <DialogContent>
                         <h1>Your cart is empty</h1>
                         <Image
@@ -46,49 +46,48 @@ export function Cart() {
                             width={24}
                         />
                     </DialogContent>
-                ) : (
-                    <DialogContent className="sm:max-w-[425px]">
-                        <DialogHeader className="!p-0">
-                            <div className="flex items-center justify-between">
-                                <DialogTitle>
-                                    Cart ( {getTotalCount()} )
-                                </DialogTitle>
-                                <Button
-                                    onClick={() => clearCart()}
-                                    variant="link"
-                                    className="mr-5 underline"
-                                    size="icon">
-                                    remove all
-                                </Button>
-                            </div>
-                        </DialogHeader>
-                        {/* counter section  */}
-                        {state.items.map((item) => (
-                            <CartItem
-                                key={item.id}
-                                item={item}
-                            />
-                        ))}
-
-                        {/* end of counter section  */}
+                ) : ( */}
+                <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader className="!p-0">
                         <div className="flex items-center justify-between">
-                            <p className="opacity-50 uppercase font-light">
-                                total
-                            </p>
-                            <p className="font-semibold">
-                                $ {getTotalPrice().toFixed(2)}
-                            </p>
-                        </div>
-                        <DialogFooter>
+                            <DialogTitle>
+                                Cart ( {getTotalCount()} )
+                            </DialogTitle>
                             <Button
-                                onClick={() => router.push("/checkout")}
-                                className="w-full"
-                                type="submit">
-                                checkout
+                                onClick={() => clearCart()}
+                                variant="link"
+                                className="mr-5 underline"
+                                size="icon">
+                                remove all
                             </Button>
-                        </DialogFooter>
-                    </DialogContent>
-                )}
+                        </div>
+                    </DialogHeader>
+                    {/* counter section  */}
+                    {state.items.map((item) => (
+                        <CartItem
+                            key={item.id}
+                            item={item}
+                        />
+                    ))}
+
+                    {/* end of counter section  */}
+                    <div className="flex items-center justify-between">
+                        <p className="opacity-50 uppercase font-light">total</p>
+                        <p className="font-semibold">
+                            $ {getTotalPrice().toFixed(2)}
+                        </p>
+                    </div>
+                    <DialogFooter>
+                        <Button
+                            disabled={state.items.length < 1}
+                            onClick={() => router.push("/checkout")}
+                            className="w-full"
+                            type="submit">
+                            checkout
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+                {/* )} */}
             </form>
         </Dialog>
     );

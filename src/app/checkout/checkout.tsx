@@ -6,10 +6,11 @@ import { checkoutSchema } from "@/lib/utils/validation";
 import { z } from "zod";
 import Input, { Option } from "@/components/input";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import CartItem from "@/components/cartitem";
 import { useCart } from "@/context/CartContext";
 import { Button } from "@/components/button";
+import CheckoutModal from "@/components/checkoutmodal";
 
 const options: Option[] = [
     { id: "1", name: "e-Money", value: "e-Money" },
@@ -36,7 +37,9 @@ const Checkout = () => {
 
     const onSubmit = (data: CheckoutFormValues) => {
         console.log("Form Submitted", data);
+        
     };
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -159,67 +162,76 @@ const Checkout = () => {
                     </div>
                 </div>
 
-                <div className="bg-white rounded-lg p-8 lg:basis-[35%] grid gap-8">
-                    <h1 className="text-xl uppercase font-semibold">summary</h1>
-                    {state.items.map((item) => (
-                        <CartItem
-                            display
-                            key={item.id}
-                            item={item}
+                <div className="lg:basis-[35%]">
+                    <div className="bg-white rounded-lg p-8  grid gap-3">
+                        <h1 className="text-xl uppercase font-semibold">
+                            summary
+                        </h1>
+                        {state.items.map((item) => (
+                            <CartItem
+                                display
+                                key={item.id}
+                                item={item}
+                            />
+                        ))}
+                        <div className="grid [&_div]:flex [&_div]:justify-between [&_dt]:uppercase [&_dt]:opacity-50 [&_dt]:font-light [&_dd]:font-bold">
+                            <div className="">
+                                <dt>total</dt>
+                                <dd>
+                                    {getTotalPrice().toLocaleString("en-US", {
+                                        style: "currency",
+                                        currency: "USD",
+                                        minimumFractionDigits: 0,
+                                    })}
+                                </dd>
+                            </div>
+                            <div className="">
+                                <dt>shipping</dt>
+                                <dd>
+                                    {(50).toLocaleString("en-US", {
+                                        style: "currency",
+                                        currency: "USD",
+                                    })}
+                                </dd>
+                            </div>
+                            <div className="">
+                                <dt>vat (included)</dt>
+                                <dd>
+                                    {(0.2 * getTotalPrice()).toLocaleString(
+                                        "en-US",
+                                        {
+                                            style: "currency",
+                                            currency: "USD",
+                                            minimumFractionDigits: 0,
+                                        }
+                                    )}
+                                </dd>
+                            </div>
+                            <br />
+                            <div className=" [&>dd]:text-orange">
+                                <dt>grand total</dt>
+                                <dd>
+                                    {(
+                                        1.2 * getTotalPrice() +
+                                        50
+                                    ).toLocaleString("en-US", {
+                                        style: "currency",
+                                        currency: "USD",
+                                        minimumFractionDigits: 0,
+                                    })}
+                                </dd>
+                            </div>
+                            <Button
+                                onClick={() => setIsModalOpen(true)}
+                                type="submit"
+                                className="w-full mt-8 bg-orange text-white py-2 px-4 cursor-pointer">
+                                continue & pay
+                            </Button>
+                        </div>
+                        <CheckoutModal
+                            isOpen={isModalOpen}
+                            onClose={() => setIsModalOpen(false)}
                         />
-                    ))}
-                    <div className="grid gap-4">
-                        <div className="flex justify-between [&>dt]:uppercase [&>dt]:opacity-50 [&>dd]:font-semibold">
-                            <dt>total</dt>
-                            <dd>
-                                {getTotalPrice().toLocaleString("en-US", {
-                                    style: "currency",
-                                    currency: "USD",
-                                    minimumFractionDigits:0
-                                })}
-                            </dd>
-                        </div>
-                        <div className="flex justify-between [&>dt]:uppercase [&>dt]:opacity-50 [&>dd]:font-semibold">
-                            <dt>shipping</dt>
-                            <dd>
-                                {(50).toLocaleString("en-US", {
-                                    style: "currency",
-                                    currency: "USD",
-                                })}
-                            </dd>
-                        </div>
-                        <div className="flex justify-between [&>dt]:uppercase [&>dt]:opacity-50 [&>dd]:font-semibold">
-                            <dt>vat (included)</dt>
-                            <dd>
-                                {(0.2 * getTotalPrice()).toLocaleString(
-                                    "en-US",
-                                    {
-                                        style: "currency",
-                                        currency: "USD",
-                                        minimumFractionDigits:0
-                                    }
-                                )}
-                            </dd>
-                        </div>
-                        <br />
-                        <div className="flex justify-between [&>dt]:uppercase [&>dt]:opacity-50 [&>dd]:font-semibold [&>dd]:text-orange">
-                            <dt>grand total</dt>
-                            <dd>
-                                {(1.2 * getTotalPrice() + 50).toLocaleString(
-                                    "en-US",
-                                    {
-                                        style: "currency",
-                                        currency: "USD",
-                                        minimumFractionDigits:0
-                                    }
-                                )}
-                            </dd>
-                        </div>
-                        <Button
-                            type="submit"
-                            className="w-full mt-8 bg-orange text-white py-2 px-4 cursor-pointer">
-                            continue & pay
-                        </Button>
                     </div>
                 </div>
             </div>
