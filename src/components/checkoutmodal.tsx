@@ -23,7 +23,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
     return (
         <TestModal
             isOpen={isOpen}
-            onClose={handleClose}>
+            onClose={onClose}>
             <div className="p-4 rounded-lg flex flex-col justify-center gap-6">
                 <Image
                     src="/assets/checkout/icon-order-confirmation.svg"

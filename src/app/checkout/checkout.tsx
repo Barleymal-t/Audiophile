@@ -37,7 +37,7 @@ const Checkout = () => {
 
     const onSubmit = (data: CheckoutFormValues) => {
         console.log("Form Submitted", data);
-        
+        setIsModalOpen(true);
     };
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -222,7 +222,6 @@ const Checkout = () => {
                                 </dd>
                             </div>
                             <Button
-                                onClick={() => setIsModalOpen(true)}
                                 type="submit"
                                 className="w-full mt-8 bg-orange text-white py-2 px-4 cursor-pointer">
                                 continue & pay
